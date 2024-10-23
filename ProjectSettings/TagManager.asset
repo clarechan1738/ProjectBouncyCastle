@@ -4,7 +4,12 @@
 TagManager:
   serializedVersion: 2
   tags:
+<<<<<<< Updated upstream
   - Wall
+=======
+  - Spike
+  - Dialogue
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
