@@ -19,9 +19,13 @@ public class MovementBalloon : MonoBehaviour
     public float Horizontal = Input.GetAxis("Horizontal") * (Time.deltaTime);
     public float Vertical = (Input.GetAxis("Vertical")) * (Time.deltaTime);
     public int Jumps = 2;
+    public float JumpHeight = 40f;
     public bool IsGrounded = true;
     Rigidbody rigidbody;
     MeshRenderer Capsule;
+    float _target = 3;
+    float _current;
+    float _speed = 0.5f;
 
     void Start()
     {
@@ -38,27 +42,39 @@ public class MovementBalloon : MonoBehaviour
 
         transform.Translate(new Vector3(Horizontal * SPEED, 0, Vertical * SPEED));
 
-        Vector3 vector3 = this.transform.forward;
+        _target = _target == 0 ? 0 : _target;
+
+        _current = Mathf.MoveTowards(_current, _target, _speed * Time.deltaTime);
+
+        if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.Z)) == 1))
+        {
+            transform.Translate(transform.forward * 5);
+            print("You dashed");
+        }
+
         if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.Space)) == 1)
         {
             IsGrounded = false;
             print("Jump button pressed");
-        }
-        if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.Space)) == 1) && IsGrounded == false && Jumps != 0)
-        {
-            print("Executing Jump");
-            transform.position = new Vector3(transform.position.x, (transform.position.y + 5), transform.position.z);
-            Jumps--;
-        }
-        if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.LeftShift)) == 1)) ;
-    }
-    void OnCollisionEnter(Collision collision)
-    {
-        Jumps = 2;
-        IsGrounded = true;
-        if (collision.gameObject.CompareTag("Wall"))
-        {
-            transform.Translate(Vector3.forward - Vector3.forward);
+
+            if (IsGrounded == false && Jumps != 0)
+            {
+                print("Executing Jump");
+                rigidbody.AddForce(transform.up * JumpHeight);
+                Jumps--;
+
+                print(_current);
+            }
         }
     }
+       void OnCollisionEnter(Collision collision)
+       {
+            Jumps = 2;
+            IsGrounded = true;
+
+            if (collision.gameObject.CompareTag("Wall"))
+            {
+                transform.Translate(Vector3.forward - Vector3.forward);
+            }
+       }
 }
