@@ -13,7 +13,7 @@ using UnityEngine.UIElements;
 
 public class MovementBalloon : MonoBehaviour
 {
-    const float SPEED = 10;
+    public float SPEED = 10;
     public float Horizontal;
     public float Vertical;
     public int Jumps = 2;
@@ -51,7 +51,7 @@ public class MovementBalloon : MonoBehaviour
             if (IsGrounded == false && Jumps != 0)
             {
                 print("Executing Jump");
-                rigidbody.AddForce(transform.forward * 5001);
+                rigidbody.AddForce(transform.forward * -5001);
                 Jumps--;
 
             }
@@ -78,6 +78,10 @@ public class MovementBalloon : MonoBehaviour
             transform.Translate(Vector3.forward - Vector3.forward);
             Jumps = 2;
             IsGrounded = true;
+        }
+        if (collision.gameObject.CompareTag("BbSpike")) 
+        {
+            SPEED = 5;
         }
 
     }

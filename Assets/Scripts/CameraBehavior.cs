@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
 {
+    public Transform target;
     [SerializeField]
     private GameObject Part2;
     [SerializeField]
@@ -26,6 +27,10 @@ public class CameraBehavior : MonoBehaviour
         {
             Part2Camera.SetActive(true);
         }
+    }
+    private void FixedUpdate()
+    {
+        transform.LookAt(target);
     }
     // Update is called once per frame
     void Update()
