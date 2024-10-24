@@ -1463,6 +1463,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1317333192}
     - target: {fileID: 6907815531558819208, guid: d72564a448f5a24469ceb161a8cd247a, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1442633022}
+    - target: {fileID: 6907815531558819208, guid: d72564a448f5a24469ceb161a8cd247a, type: 3}
       propertyPath: MainCamera
       value: 
       objectReference: {fileID: 963194225}
@@ -3410,9 +3414,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1276655949}
-  m_LocalRotation: {x: 0.13052616, y: 0, z: 0, w: 0.9914449}
-  m_LocalPosition: {x: -0.79000056, y: 15.58, z: -2.74}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0.79345953, z: -0.60862297, w: 0}
+  m_LocalPosition: {x: 0.028239232, y: 0.777, z: 0.184}
+  m_LocalScale: {x: 0.033222582, y: 0.033222593, z: 0.03322259}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -3745,6 +3749,11 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!4 &1442633022 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6281552333174608780, guid: d72564a448f5a24469ceb161a8cd247a, type: 3}
+  m_PrefabInstance: {fileID: 753643453}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1451337326
 GameObject:
   m_ObjectHideFlags: 0
@@ -6211,7 +6220,7 @@ GameObject:
   - component: {fileID: 2129424617}
   m_Layer: 6
   m_Name: Plane (2)
-  m_TagString: Wall
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
