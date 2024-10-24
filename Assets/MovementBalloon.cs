@@ -25,56 +25,58 @@ public class MovementBalloon : MonoBehaviour
     MeshRenderer Capsule;
     float _target = 3;
     float _current;
-    float _speed = 0.5f;
+    float _speed = 5000f;
 
     void Start()
     {
         Jumps = 2;
-        rigidbody = FindAnyObjectByType<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
         Capsule = FindAnyObjectByType<MeshRenderer>();
     }
     void Update()
     {
 
 
-        Horizontal = Input.GetAxisRaw("Horizontal") * Time.deltaTime;
-        Vertical = (Input.GetAxisRaw("Vertical") * Time.deltaTime);
+        Horizontal = Input.GetAxisRaw("Horizontal");
+        Vertical = Input.GetAxisRaw("Vertical");
+        //needs to be changed to work with physics body
 
-        transform.Translate(new Vector3(Horizontal * SPEED, Vertical * SPEED, 0));
+        //_target = _target == 0 ? 0 : _target;
 
-        _target = _target == 0 ? 0 : _target;
+        //_current = Mathf.MoveTowards(_current, _target, _speed * Time.deltaTime);
 
-        _current = Mathf.MoveTowards(_current, _target, _speed * Time.deltaTime);
-
-        if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.Z)) == 1))
-        {
-            transform.Translate(transform.forward * 5);
-            print("You dashed");
-        }
+        //if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.Z)) == 1))
+        //{
+        //    transform.Translate(transform.forward * 5);
+        //    print("You dashed");
+        //}
 
         if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.Space)) == 1)
         {
             IsGrounded = false;
             print("Jump button pressed");
-
             if (IsGrounded == false && Jumps != 0)
             {
                 print("Executing Jump");
-                rigidbody.AddForce(transform.up * JumpHeight);
+                rigidbody.AddForce(transform.forward * 5001);
                 Jumps--;
 
-                print(_current);
             }
         }
     }
-       void OnCollisionEnter(Collision collision)
+    private void FixedUpdate()
+    {
+       // transform.Translate(new Vector3(-Horizontal * SPEED, Vertical * SPEED, 0));
+        rigidbody.velocity = new Vector3(Horizontal * SPEED, 0, Vertical * SPEED);
+    }
+    void OnCollisionEnter(Collision collision)
        {
-            Jumps = 2;
-            IsGrounded = true;
 
             if (collision.gameObject.CompareTag("Wall"))
             {
                 transform.Translate(Vector3.forward - Vector3.forward);
-            }
+                Jumps = 2;
+                IsGrounded = true;
+        }
        }
 }
