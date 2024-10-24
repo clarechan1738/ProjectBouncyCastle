@@ -36,7 +36,7 @@ public class MovementBalloon : MonoBehaviour
         Horizontal = Input.GetAxisRaw("Horizontal") * Time.deltaTime;
         Vertical = (Input.GetAxisRaw("Vertical") * Time.deltaTime);
 
-        transform.Translate(new Vector3(Horizontal * SPEED, 0, Vertical * SPEED));
+        transform.Translate(new Vector3(Horizontal * SPEED, Vertical * SPEED, 0));
 
         Vector3 vector3 = this.transform.forward;
         if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.Space)) == 1)
