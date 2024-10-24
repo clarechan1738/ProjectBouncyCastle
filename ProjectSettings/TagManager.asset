@@ -8,6 +8,8 @@ TagManager:
   - Dialogue
   - Wall
   - Floor
+  - Part2
+  - Camera
   layers:
   - Default
   - TransparentFX
