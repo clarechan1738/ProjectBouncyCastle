@@ -28,11 +28,14 @@ public class MovementBalloon : MonoBehaviour
     float _speed = 5000f;
     public AudioSource AudioJump;
     public AudioSource AudioJump2;
+    CameraBehavior cBehavior;
+
     void Start()
     {
         Jumps = 2;
         rigidbody = GetComponent<Rigidbody>();
         Capsule = FindAnyObjectByType<MeshRenderer>();
+        cBehavior = FindAnyObjectByType<CameraBehavior>();
     }
     void Update()
     {
@@ -75,8 +78,16 @@ public class MovementBalloon : MonoBehaviour
     }
     private void FixedUpdate()
     {
-       // transform.Translate(new Vector3(-Horizontal * SPEED, Vertical * SPEED, 0));
-        rigidbody.velocity = new Vector3(Horizontal * SPEED, 0, Vertical * SPEED);
+        if (cBehavior.cameraFlipped)
+        {
+            rigidbody.velocity = new Vector3(Horizontal * SPEED, 0, Vertical * SPEED);
+        }
+        else
+        {
+            rigidbody.velocity = new Vector3(-Vertical * SPEED, 0, Horizontal * SPEED);
+
+
+        }
     }
     void OnCollisionEnter(Collision collision)
        {

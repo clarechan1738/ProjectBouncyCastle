@@ -18,12 +18,14 @@ public class WinScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Collided With" + other.name);
-        if (other.gameObject.CompareTag("Spike")) 
+        if (other.gameObject.CompareTag("Spike"))
         {
             SceneManager.LoadScene("GameOver");
-        };
-        // GameManagerDependencyInfo.FinishedGame(); 
+        }
+        else if (other.gameObject.CompareTag("Winner"))
+        {
+            SceneManager.LoadScene("Winner");
+        }
     }
 
     // Update is called once per frame
