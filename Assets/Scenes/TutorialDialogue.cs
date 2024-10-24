@@ -5,8 +5,9 @@ using UnityEngine;
 
 public class TutorialDialogue : MonoBehaviour
 {
-    short dial = 1;
-
+    short dialogue = 1;
+    [SerializeField]
+    private GameObject dialogue1;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,18 +17,19 @@ public class TutorialDialogue : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Dialogue")) 
         {
-            switch (dial)
+            switch (dialogue)
             {
                 case 1:
-                    dial = 2;
+                    dialogue = 2;
+                    dialogue1.SetActive(true);
                     break;
 
                 case 2:
-                    dial = 3;
+                    dialogue = 3;
                     break;
 
                 case 3:
-                    dial = 4;
+                    dialogue = 4;
                     break;
 
             }
