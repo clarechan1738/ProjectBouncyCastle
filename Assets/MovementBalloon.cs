@@ -16,8 +16,8 @@ public class MovementBalloon : MonoBehaviour
 
     // Start is called before the first frame update
     const float SPEED = 10;
-    public float Horizontal = Input.GetAxis("Horizontal") * (Time.deltaTime);
-    public float Vertical = (Input.GetAxis("Vertical")) * (Time.deltaTime);
+    public float Horizontal; //Input.GetAxisRaw("Horizontal") * (Time.deltaTime);
+    public float Vertical; //(Input.GetAxisRaw("Vertical")) * (Time.deltaTime);
     public int Jumps = 2;
     public bool IsGrounded = true;
     Rigidbody rigidbody;
@@ -33,8 +33,8 @@ public class MovementBalloon : MonoBehaviour
     {
 
 
-        Horizontal = Input.GetAxis("Horizontal") * Time.deltaTime;
-        Vertical = (Input.GetAxis("Vertical") * Time.deltaTime);
+        Horizontal = Input.GetAxisRaw("Horizontal") * Time.deltaTime;
+        Vertical = (Input.GetAxisRaw("Vertical") * Time.deltaTime);
 
         transform.Translate(new Vector3(Horizontal * SPEED, 0, Vertical * SPEED));
 

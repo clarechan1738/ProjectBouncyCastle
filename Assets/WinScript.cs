@@ -6,9 +6,9 @@ using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour
 {
-    public bool damageCollider = false;
-    bool isRunning = false;
-    public bool isFinished = false;   
+    //public bool damageCollider = false;
+    //bool isRunning = false;
+    //public bool isFinished = false;   
     
     // Start is called before the first frame update
     void Start()
@@ -18,18 +18,21 @@ public class WinScript : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Spike")) { };
-
-       // GameManagerDependencyInfo.FinishedGame(); 
+        Debug.Log("Collided With" + other.name);
+        if (other.gameObject.CompareTag("Spike")) 
+        {
+            SceneManager.LoadScene("GameOver");
+        };
+        // GameManagerDependencyInfo.FinishedGame(); 
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (damageCollider == true)
-        {
-            SceneManager.LoadScene("GameOver");
-        }
+        //if (damageCollider == true)
+        //{
+        //    SceneManager.LoadScene("GameOver");
+        
     }
 
 }
