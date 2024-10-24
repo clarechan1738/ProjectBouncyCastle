@@ -4,6 +4,8 @@
 TagManager:
   serializedVersion: 2
   tags:
+  - Spike
+  - Dialogue
   - Wall
   - Floor
   layers:
@@ -13,9 +15,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - Wall
+  - Spike
+  - Player
   - 
   - 
   - 
