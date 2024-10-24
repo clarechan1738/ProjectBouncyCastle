@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour
 {
+    public GameObject cameraSpawnLocation;
+    public GameObject Part2Camera;
+    private GameObject camClone;
+    public GameObject mainCamera;
 
     void OnTriggerEnter(Collider other)
     {
@@ -16,6 +20,14 @@ public class WinScript : MonoBehaviour
         else if (other.gameObject.CompareTag("Winner"))
         {
             SceneManager.LoadScene("Winner");
+        }
+        else if (other.gameObject.CompareTag("Lvl1"))
+        {
+            SceneManager.LoadScene("Level 1");
+            camClone = Instantiate(Part2Camera, cameraSpawnLocation.transform.position, Quaternion.identity);
+            transform.position = camClone.transform.position + new Vector3(0, 1, -5);
+            Destroy(gameObject);
+
         }
     }
 
