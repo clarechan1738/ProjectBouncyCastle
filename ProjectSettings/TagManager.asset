@@ -12,8 +12,6 @@ TagManager:
   - Camera
   - Winner
   - Checkpoint
-  - BbSpikes
-  - Lvl1
   layers:
   - Default
   - TransparentFX

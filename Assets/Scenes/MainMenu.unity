@@ -160,8 +160,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.000017166, y: -391.45752}
-  m_SizeDelta: {x: 383.1661, y: 254.0323}
+  m_AnchoredPosition: {x: 0.000017166, y: -0.000030518}
+  m_SizeDelta: {x: 383.1661, y: 358.9474}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &578303080
 MonoBehaviour:
@@ -209,7 +209,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 709722530}
         m_TargetAssemblyTypeName: MenuManager, Assembly-CSharp
-        m_MethodName: QuitGame
+        m_MethodName: StartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -315,7 +315,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: QUIT
+  m_text: PLAY
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e75ffda65ad02ec469253d94664f7884, type: 2}
   m_sharedMaterial: {fileID: 7101618414326573066, guid: e75ffda65ad02ec469253d94664f7884, type: 2}
