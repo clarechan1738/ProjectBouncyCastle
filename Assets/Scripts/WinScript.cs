@@ -6,15 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour
 {
-    //public bool damageCollider = false;
-    //bool isRunning = false;
-    //public bool isFinished = false;   
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
 
     void OnTriggerEnter(Collider other)
     {
