@@ -17,6 +17,10 @@ public class WinScript : MonoBehaviour
         {
             SceneManager.LoadScene("Winner");
         }
+        else if (other.gameObject.CompareTag("Lvl1"))
+        {
+            SceneManager.LoadScene("Level 1");
+        }
     }
 
     // Update is called once per frame
