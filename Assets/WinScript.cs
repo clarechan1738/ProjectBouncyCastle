@@ -6,6 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class WinScript : MonoBehaviour
 {
+    public GameObject cameraSpawnLocation;
+    public GameObject Part2Camera;
+    private GameObject camClone;
+    public GameObject mainCamera;
 
     void OnTriggerEnter(Collider other)
     {

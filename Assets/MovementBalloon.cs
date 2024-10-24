@@ -56,6 +56,12 @@ public class MovementBalloon : MonoBehaviour
 
             }
         }
+        if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.Z)) == 1))
+        {
+            rigidbody.AddForce(transform.up * 10000);
+            print("You dashed");
+        }
+
     }
     private void FixedUpdate()
     {
