@@ -26,7 +26,8 @@ public class MovementBalloon : MonoBehaviour
     float _target = 3;
     float _current;
     float _speed = 5000f;
-
+    public AudioSource AudioJump;
+    public AudioSource AudioJump2;
     void Start()
     {
         Jumps = 2;
@@ -45,11 +46,11 @@ public class MovementBalloon : MonoBehaviour
 
         //_current = Mathf.MoveTowards(_current, _target, _speed * Time.deltaTime);
 
-        //if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.Z)) == 1))
-        //{
-        //    transform.Translate(transform.forward * 5);
-        //    print("You dashed");
-        //}
+        if ((Convert.ToUInt64(Input.GetKeyDown(KeyCode.Z)) == 1))
+        {
+            rigidbody.AddForce(transform.up * 10000);
+            print("You dashed");
+        }
 
         if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.Space)) == 1)
         {
@@ -60,6 +61,14 @@ public class MovementBalloon : MonoBehaviour
                 print("Executing Jump");
                 rigidbody.AddForce(transform.forward * 5001);
                 Jumps--;
+                if (Jumps == 2) 
+                    {
+                    AudioJump.Play();
+                }
+                if (Jumps == 1)
+                    {
+                    AudioJump2.Play();
+                }
 
             }
         }
