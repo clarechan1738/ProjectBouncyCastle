@@ -22,7 +22,10 @@ public class WinScript : MonoBehaviour
         {
             SceneManager.LoadScene("Level 1");
         }
-        // GameManagerDependencyInfo.FinishedGame(); 
+        else if(other.gameObject.CompareTag("Lvl2"))
+        {
+            SceneManager.LoadScene("Level 2");
+        }
     }
 
     // Update is called once per frame

@@ -87,12 +87,7 @@ public class MovementBalloon : MonoBehaviour
             Jumps = 2;
             IsGrounded = true;
         }
-        //if (collision.gameObject.CompareTag("Part2"))
-        //{
-        //    Camera = 2
-        //}
-
-        if (collision.gameObject.CompareTag("FinishWall"))
+        else if (collision.gameObject.CompareTag("FinishWall"))
         {
 
             SceneManager.LoadScene("Winner");
