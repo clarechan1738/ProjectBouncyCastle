@@ -16,6 +16,8 @@ TagManager:
   - FinishWall
   - Wabbit
   - Lvl2
+  - Part4
+  - Part3
   layers:
   - Default
   - TransparentFX

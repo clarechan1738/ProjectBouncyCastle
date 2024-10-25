@@ -1,7 +1,6 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor;
 using UnityEngine;
 
 public class CameraBehavior : MonoBehaviour
@@ -13,60 +12,81 @@ public class CameraBehavior : MonoBehaviour
     [SerializeField]
     GameObject Part2Camera;
     [SerializeField]
-    Camera Part3Camera;
+    GameObject Part3Camera;
     [SerializeField]
-    Camera Part4Camera;
+    GameObject Part4Camera;
     [SerializeField]
-    GameObject Part3Camera2;
+    Camera Part5Camera;
     [SerializeField]
-    GameObject Part4Camera2;
+    Camera Part6Camera;
+    [SerializeField]
+    GameObject Part5Camera2;
+    [SerializeField]
+    GameObject Part6Camera2;
+
     public bool cameraFlipped = false;
     bool Cameramode = false;
     void Start()
     {
-        
+
     }
     private void OnTriggerEnter(Collider other)
     {
         print("TriggerEntered");
         if (Cameramode == false)
-            {
+        {
             if (other.CompareTag("Part2"))
             {
                 cameraFlipped = true;
+                Part2Camera.SetActive(true);
                 Destroy(MainCamera);
                 print("CameraShouldSwitch");
             }
-            if (cameraFlipped == true)
+            if (other.CompareTag("Part3"))
             {
-                Part2Camera.SetActive(true);
+                cameraFlipped = true;
+                Part3Camera.SetActive(true);
+                Destroy(Part2Camera);
+                print("CameraShouldSwitch");
             }
-        }
-        if (other.CompareTag("CamSwitch"))
-        {
-            Part3Camera2.SetActive(true);
-            Part4Camera2.SetActive(true);
-            Cameramode = true;
+            if (other.CompareTag("Part4"))
+            {
+                cameraFlipped = true;
+                Part4Camera.SetActive(true);
+                Destroy(Part2Camera);
+                print("CameraShouldSwitch");
+            }
+            if (other.CompareTag("CamSwitch"))
+            {
+                Cameramode = true;
+                Part5Camera2.SetActive(true);
+                Part6Camera2.SetActive(true);
 
+            }
         }
     }
-    // Update is called once per frame
-    void Update()
-    {
-        if (Cameramode == true) 
+        // Update is called once per frame
+        void Update()
         {
-            Destroy(MainCamera);
-            Destroy(Part2Camera);
-            if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.Alpha1)) == 1)
+            if (Cameramode == true)
             {
-                Part3Camera2.SetActive(false);
-                Part4Camera2.SetActive(true);
-            }
-            if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.Alpha2)) == 1)
-            {
-                Part3Camera2.SetActive(true);
-                Part4Camera2.SetActive(false);
+                print("CameraModeEnabled");
+                Destroy(MainCamera);
+                Destroy(Part2Camera);
+                Destroy(Part3Camera);
+
+                if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.G)) == 1)
+                {
+                    Part5Camera2.SetActive(false);
+                    Part6Camera2.SetActive(true);
+                    print("1IsPressed");
+                }
+                if (Convert.ToUInt64(Input.GetKeyDown(KeyCode.T)) == 1)
+                {
+                    Part5Camera2.SetActive(true);
+                    Part6Camera2.SetActive(false);
+                    print("2IsPressed");
+                }
             }
         }
-    }
 }

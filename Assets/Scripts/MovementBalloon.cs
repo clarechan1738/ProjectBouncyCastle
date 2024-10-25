@@ -4,8 +4,6 @@ using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using System.Runtime.CompilerServices;
 using Unity.VisualScripting;
-using UnityEditor;
-using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
