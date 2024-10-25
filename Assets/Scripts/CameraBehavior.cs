@@ -28,12 +28,14 @@ public class CameraBehavior : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
+        print("TriggerEntered");
         if (Cameramode == false)
             {
             if (other.CompareTag("Part2"))
             {
                 cameraFlipped = true;
                 Destroy(MainCamera);
+                print("CameraShouldSwitch");
             }
             if (cameraFlipped == true)
             {
