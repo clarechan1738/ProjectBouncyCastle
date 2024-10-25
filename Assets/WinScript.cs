@@ -18,6 +18,11 @@ public class WinScript : MonoBehaviour
         {
             SceneManager.LoadScene("GameOver");
         };
+        if (other.gameObject.CompareTag("Winner"))
+        {
+            SceneManager.LoadScene("Level 1");
+            print("Alright");
+        };
         // GameManagerDependencyInfo.FinishedGame(); 
     }
 
