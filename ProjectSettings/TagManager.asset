@@ -15,6 +15,7 @@ TagManager:
   - CamSwitch
   - FinishWall
   - Wabbit
+  - Lvl2
   layers:
   - Default
   - TransparentFX
