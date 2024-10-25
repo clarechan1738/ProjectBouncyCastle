@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
@@ -84,6 +85,12 @@ public class MovementBalloon : MonoBehaviour
             transform.Translate(Vector3.forward - Vector3.forward);
             Jumps = 2;
             IsGrounded = true;
+        }
+
+        if (collision.gameObject.CompareTag("FinishWall"))
+        {
+
+            SceneManager.LoadScene("Winner");
         }
 
     }
