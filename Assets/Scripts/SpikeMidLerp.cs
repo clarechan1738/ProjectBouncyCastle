@@ -5,7 +5,7 @@ using UnityEngine;
 public class SpikeMidLerp : MonoBehaviour
 {
     float time = 0;
-    const int SPEED = 50;
+    public int SPEED = 50;
     public float moveDuration;
     public Transform target2;
     public Transform target1;
