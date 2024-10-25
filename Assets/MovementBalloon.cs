@@ -8,6 +8,7 @@ using UnityEditor;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
@@ -89,6 +90,12 @@ public class MovementBalloon : MonoBehaviour
         //{
         //    Camera = 2
         //}
+
+        if (collision.gameObject.CompareTag("FinishWall"))
+        {
+
+            SceneManager.LoadScene("Winner");
+        }
 
     }
 }
