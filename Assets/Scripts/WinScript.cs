@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -14,7 +13,7 @@ public class WinScript : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         Debug.Log("Collided With" + other.name);
-        if (other.gameObject.CompareTag("Spike")) 
+        if (other.gameObject.CompareTag("Spike"))
         {
             SceneManager.LoadScene("GameOver");
         }
@@ -22,9 +21,14 @@ public class WinScript : MonoBehaviour
         {
             SceneManager.LoadScene("Level 1");
         }
-        else if(other.gameObject.CompareTag("Lvl2"))
+        else if (other.gameObject.CompareTag("Lvl2"))
         {
             SceneManager.LoadScene("Level 2");
+        }
+        else if (other.gameObject.CompareTag("FinishWall"))
+        {
+            SceneManager.LoadScene("Winner");
+            print("WinnerWallTouched");
         }
     }
 
