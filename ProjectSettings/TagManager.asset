@@ -12,6 +12,8 @@ TagManager:
   - Camera
   - Winner
   - Checkpoint
+  - CamSwitch
+  - FinishWall
   layers:
   - Default
   - TransparentFX
